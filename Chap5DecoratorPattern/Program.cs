@@ -8,11 +8,13 @@ namespace Chap5DecoratorPattern
 {
     class Program
     {
-        static IComponent component;
+        static IComponent originalComponent, decoratorComponent;
+
         static void Main(string[] args)
         {
-            component = new DecoratorComponent(new ConcreteComponent());
-            component.Something();
+            originalComponent = new ConcreteComponent();
+            decoratorComponent = new DecoratorComponent(originalComponent);
+            decoratorComponent.Something();
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
